@@ -14,22 +14,30 @@ const resumeSchema = mongoose.Schema({
     computer_skills : Array,
     hobbies : Array,
     candidate_photo : String,
-    post_graduate : {
+    english_level : String,
+    mother_tongue : String,
+    german : {
+        level : String,
+        from : Date,
+        to : Date,
+        certification_date : Date
+    },
+    post_graduate : [{
         course : String,
         institute : String,
-        current_year : String,
+        year_no : String,
         from_date : Date,
         to_date : Date,
         marksheet : String
-    },
-    under_graduate : {
+    }],
+    under_graduate : [{
         course : String,
         institute : String,
-        current_year : String,
+        year_no : String,
         from_date : Date,
         to_date : Date,
         marksheet : String
-    },
+    }],
     twelweth : {
         institute : String,
         from_date : Date,
@@ -53,26 +61,32 @@ const resumeSchema = mongoose.Schema({
         from_date : Date,
         to_date : Date,
     },
-    blank_year : {
+    blank_year : [{
         reason : String,
         from_date : Date,
         to_date : Date,
-    },
+    }],
     languages : [{}],
-    internship : {
+    internship : [{
         hospital_name : String,
         department : String,
         from_date : Date,
         to_date : Date,
         internship_certificate : String
-    },
-    work_experience : {
+    }],
+    work_experience : [{
         hospital_name : String,
         department : String,
         from_date : Date,
         to_date : Date,
         work_experience : String
-    },
+    }],
+    declaration : {
+        place : String,
+        country : String,
+        date : Date,
+        signature_photo : String
+    }
 }, {timeStamps : true})
 
 const resume = mongoose.model("resume", resumeSchema)
