@@ -7,7 +7,7 @@ const resumeSchema = mongoose.Schema({
     address : String,
     contact_number : String,
     email : String,
-    birth_date : Date,
+    birth_date : String,
     place_of_birth : String,
     marital_status : String,
     gender : String,
@@ -18,73 +18,73 @@ const resumeSchema = mongoose.Schema({
     mother_tongue : String,
     german : {
         level : String,
-        from : Date,
-        to : Date,
-        certification_date : Date
+        from : String,
+        to : String,
+        certification_date : String
     },
     post_graduate : [{
         course : String,
         institute : String,
         year_no : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         marksheet : String
     }],
     under_graduate : [{
         course : String,
         institute : String,
         year_no : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         marksheet : String
     }],
     twelweth : {
         institute : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         marksheet : String
     },
     eleventh : {
         institute : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         marksheet : String
     },
     tenth : {
         institute : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         marksheet : String
     },
     first_to_ninth : {
         institute : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
     },
     blank_year : [{
         reason : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
     }],
     languages : [{}],
     internship : [{
         hospital_name : String,
         department : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         internship_certificate : String
     }],
     work_experience : [{
         hospital_name : String,
         department : String,
-        from_date : Date,
-        to_date : Date,
+        from_date : String,
+        to_date : String,
         work_experience : String
     }],
     declaration : {
         place : String,
         country : String,
-        date : Date,
+        date : String,
         signature_photo : String
     }
 }, {timeStamps : true})

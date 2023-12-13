@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
   
   const upload = multer({storage})
 
-router.post("/createResume", upload.fields([{ name: 'passport', maxCount: 1 }, { name: 'candidate', maxCount: 1 }, { name: 'post_graduate_marksheet', maxCount: 1 }, { name: 'under_graduate_marksheet', maxCount: 1 }, { name: 'twelweth_marksheet', maxCount: 1 }, { name: 'eleventh_marksheet', maxCount: 1 }, { name: 'tenth_marksheet', maxCount: 1 },]), async(req, res)=>{
+router.post("/createResume", async(req, res)=>{
     const { given_name, sur_name , father_name, address, contact_number , email, birth_date, place_of_birth, marital_status, gender, computer_skills, hobbies, candidate_photo, post_graduate, under_graduate, twelweth, eleventh, first_to_ninth, tenth, work_experience, internship, languages, blank_year } = req.body
     
     // if ( given_name, sur_name , father_name, address, contact_number , email, birth_date, place_of_birth, marital_status, gender, computer_skills, hobbies, candidate_photo, post_graduate, under_graduate, twelweth, eleventh, first_to_ninth, tenth, work_experience, internship, languages, blank_year ) {
@@ -29,13 +29,21 @@ router.post("/createResume", upload.fields([{ name: 'passport', maxCount: 1 }, {
         { given_name, sur_name , father_name, address, contact_number , email, birth_date, place_of_birth, marital_status, gender, computer_skills, hobbies, candidate_photo, post_graduate, under_graduate, twelweth, eleventh, first_to_ninth, tenth, work_experience, internship, languages, blank_year }
       )
       res.json({
-        success : "true",
+        success : true,
         createdResume : Resume
       })
     // }
 })
 
-router.put("/updateResume", upload.fields([{ name: 'passport', maxCount: 1 }, { name: 'candidate', maxCount: 1 }, { name: 'post_graduate_marksheet', maxCount: 1 }, { name: 'under_graduate_marksheet', maxCount: 1 }, { name: 'twelweth_marksheet', maxCount: 1 }, { name: 'eleventh_marksheet', maxCount: 1 }, { name: 'tenth_marksheet', maxCount: 1 },]), async(req, res)=>{
+router.post("/addFiles", upload.fields([{ name: 'passport', maxCount: 1 }, { name: 'candidate', maxCount: 1 }, { name: 'post_graduation_marksheet_1', maxCount: 1 }, { name: 'post_graduation_marksheet_2', maxCount: 1 }, { name: 'post_graduation_marksheet_3', maxCount: 1 },  { name: 'under_graduation_marksheet_1', maxCount: 1 }, { name: 'under_graduation_marksheet_2', maxCount: 1 }, { name: 'under_graduation_marksheet_3', maxCount: 1 }, { name: 'twelweth_marksheet', maxCount: 1 }, { name: 'eleventh_marksheet', maxCount: 1 }, { name: 'tenth_marksheet', maxCount: 1 },]), async(req, res)=>{
+    
+      res.json({
+        success : true,
+      })
+    // }
+})
+
+router.put("/updateResume", upload.fields([{ name: 'passport', maxCount: 1 }, { name: 'candidate', maxCount: 1 }, { name: 'post_graduation_marksheet', maxCount: 1 }, { name: 'under_graduation_marksheet', maxCount: 1 }, { name: 'twelweth_marksheet', maxCount: 1 }, { name: 'eleventh_marksheet', maxCount: 1 }, { name: 'tenth_marksheet', maxCount: 1 },]), async(req, res)=>{
     const { updatedResume, resumeId } = req.body
 
     if (updatedResume, resumeId) {
